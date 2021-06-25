@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+    <title>Spring Boot - AJAX POST GET Example</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/js/postrequest.js"></script>
+    <script src="/js/getrequest.js"></script>
+</head>
+<body>
+
+<div class="container">
+
+    <h3>Add New User</h3>
+
+    <div class="row col-md-6">
+        <form id="customerForm">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" class="form-control" id="username" placeholder="Enter Username"/>
+            </div>
+            <div class="form-group">
+                <label for="firstName">First name:</label>
+                <input type="text" class="form-control" id="firstName" placeholder="Enter First name"/>
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last name:</label>
+                <input type="text" class="form-control" id="lastName" placeholder="Enter Last name"/>
+            </div>
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" min="18" max="100" class="form-control" id="age" placeholder="Enter Age"/>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="text" class="form-control" id="email" placeholder="Enter Email"/>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="text" class="form-control" id="password" placeholder="Enter Password"/>
+            </div>
+            <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+
+        <div id="postResultDiv" style="margin:10px 0px 10px 0px;"></div>
+
+        <div>
+            <button id="getAllUserId" type="button" class="btn btn-primary" style="margin:10px 0px 10px 0px;">
+                Get All Users
+            </button>
+            <div id="getResultDiv" style="margin:10px 10px 10px 15px;">
+                <ul class="list-group"></ul>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

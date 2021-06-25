@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Edit user</title>
+</head>
+<body>
+
+<!--<div>-->
+<!--    <h2>Edit user</h2>-->
+<!--    <hr>-->
+<!--    <form action="#" th:action="@{/user-update}" th:object="${user}" method="post">-->
+<!--        <label for="id">ID</label>-->
+<!--        <input readonly type="text" th:field="*{id}" id="id" placeholder="ID">-->
+<!--        <br/>-->
+<!--        <label for="username">Username</label>-->
+<!--        <input type="text" th:field="*{username}" id="username" placeholder="Username">-->
+<!--        <br>-->
+<!--        <label for="firstName">First Name</label>-->
+<!--        <input type="text" th:field="*{firstName}" id="firstName" placeholder="First Name">-->
+<!--        <br>-->
+<!--        <label for="lastName">Last Name</label>-->
+<!--        <input type="text" th:field="*{lastName}" id="lastName" placeholder="Last Name">-->
+<!--        <br>-->
+<!--        <label for="age">Age</label>-->
+<!--        <input type="text" th:field="*{age}" id="age" placeholder="age">-->
+<!--        <br>-->
+<!--        <label for="email">Email</label>-->
+<!--        <input type="text" th:field="*{email}" id="email" placeholder="Email">-->
+<!--        <br>-->
+<!--        <label for="password">Password</label>-->
+<!--        <input type="text" th:field="*{password}" id="password" placeholder="Password">-->
+<!--        <br>-->
+<!--        <p>-->
+<!--            <label for="role"><b>Role</b></label>-->
+<!--            <select id="role" class="form-control" name="role">-->
+<!--                <option th:each="role : ${allRoles}"-->
+<!--                        th:text="${role}" th:value="${role}">-->
+<!--                </option>-->
+<!--            </select>-->
+<!--        </p>-->
+<!--        <br>-->
+<!--        <input type="submit" value="Edit user">-->
+<!--    </form>-->
+<!--</div>-->
+<!--<hr>-->
+<!--<a th:href="@{/login}"><input type="submit" value="Log out"></a>-->
+
+<!--Modal edit-->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editLabel">Edit user</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <form action="#" th:action="@{/user-update}" th:object="${user}" method="post">
+                    <div class="form-group align-items-center">
+                        <div class="col-md-7">
+                            <label for="id" class="col-form-label"><b>ID</b></label>
+                            <input readonly type="text" class="form-control" th:field="*{id}" id="id" placeholder="ID" />
+                        </div>
+                        <div class="col-md-7">
+                            <label for="username" class="col-form-label"><b>Username</b></label>
+                            <input type="text" class="form-control" th:field="*{username}" id="username" placeholder="Username">
+                        </div>
+                        <div class="col-md-7">
+                            <label for="firstName" class="col-form-label"><b>First Name</b></label>
+                            <input type="text" class="form-control" th:field="*{firstName}" id="firstName" placeholder="First Name">
+                        </div>
+                        <div class="col-md-7">
+                            <label for="lastName" class="col-form-label"><b>Last Name</b></label>
+                            <input type="text" class="form-control" th:field="*{lastName}" id="lastName" placeholder="Last Name">
+                        </div>
+                        <div class="col-md-7">
+                            <label for="age" class="col-form-label"><b>Age</b></label>
+                            <input type="text" class="form-control" th:field="*{age}" id="age" placeholder="Age">
+                        </div>
+                        <div class="col-md-7">
+                            <label for="email" class="col-form-label"><b>Email</b></label>
+                            <input type="email" class="form-control" th:field="*{email}" id="email" placeholder="Email">
+                        </div>
+                        <div class="col-md-7">
+                            <label for="password" class="col-form-label"><b>Password</b></label>
+                            <input type="password" class="form-control" th:field="*{password}" id="password" placeholder="Password">
+                        </div>
+                        <div class="col-md-7">
+                            <label for="role" class="col-form-label"><b>Role</b></label>
+                            <select id="role" class="form-control" name="role">
+                                <option th:each="role : ${allRoles}"
+                                        th:text="${role}" th:value="${role}">
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+<!--                        <button type="submit" class="btn btn-primary">Edit</button>-->
+                        <input type="submit" class="btn btn-primary" value="Edit">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
