@@ -47,18 +47,34 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+//        http.authorizeRequests()
+//                .antMatchers("/", "/login").permitAll()
+//                .antMatchers("/user").access("hasAnyRole('ROLE_USER, ROLE_ADMIN')")
+//                .antMatchers("/admin/**").access("hasRole('ROLE_ADMIN')")
+//                .antMatchers("/api/users/**").access("hasAnyRole('ROLE_USER, ROLE_ADMIN')")
+//                .anyRequest().authenticated();
+//
+//        http.formLogin()
+////                .loginPage("/login")
+//                .successHandler(loginSuccessHandler)
+////                .usernameParameter("email")
+//                .permitAll();
+//
+//
+//        http.logout()
+//                .permitAll()
+//                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+//                .logoutSuccessUrl("/")
+//                .and().csrf().disable();
+//    }
         http.authorizeRequests()
                 .antMatchers("/", "/login").permitAll()
-                .antMatchers("/user", "/api/users", "/{userId}").access("hasAnyRole('ROLE_USER, ROLE_ADMIN')")
-                .antMatchers("/admin/**").access("hasRole('ROLE_ADMIN')")
-                .anyRequest().authenticated();
-
-        http.formLogin()  
-//                .loginPage("/login")
-                .successHandler(loginSuccessHandler)
-//                .usernameParameter("email")
-                .permitAll();
-
+                .antMatchers("/admin/**").access("hasAnyRole('ROLE_ADMIN')")
+                .antMatchers("/user").access("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
+                .anyRequest().authenticated()
+                .and()
+                .formLogin()
+                .successHandler(loginSuccessHandler);
 
         http.logout()
                 .permitAll()
